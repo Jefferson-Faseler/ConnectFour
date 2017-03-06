@@ -5,7 +5,7 @@ class Board
   end
 
   #column is 1 indexed for user experience
-  def play(color, column)
+  def place(color, column)
     row_index = @board.transpose[column-1].rindex { |s| s == '⚫' }
     @board[row_index][column-1] = color
   end

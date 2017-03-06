@@ -14,9 +14,9 @@ describe Board do
         ])
   end
 
-  describe "playing on the board" do
+  describe "placeing on the board" do
     it "changes the bottom-most value of column" do
-      board.play('🔴', 3)
+      board.place('🔴', 3)
       expect(board.board).to eq([
           ['⚫', '⚫', '⚫', '⚫', '⚫', '⚫', '⚫'],
           ['⚫', '⚫', '⚫', '⚫', '⚫', '⚫', '⚫'],
@@ -28,8 +28,8 @@ describe Board do
     end
 
     it "does not change a slot already occupied" do
-      board.play('🔴', 3)
-      board.play('⚪', 3)
+      board.place('🔴', 3)
+      board.place('⚪', 3)
       expect(board.board).to eq([
           ['⚫', '⚫', '⚫', '⚫', '⚫', '⚫', '⚫'],
           ['⚫', '⚫', '⚫', '⚫', '⚫', '⚫', '⚫'],
