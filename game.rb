@@ -1,14 +1,14 @@
 class Game
 
   def initialize
-    @turn = 'red'
+    @turn = '🔴'
   end
 
   def change_turn
-    if @turn == 'red'
-      @turn = 'black'
-    elsif @turn == 'black'
-      @turn = 'red'
+    if @turn == '🔴'
+      @turn = '⚫'
+    elsif @turn == '⚫'
+      @turn = '🔴'
     end
   end
 
