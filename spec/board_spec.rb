@@ -27,5 +27,17 @@ describe Board do
           ])
     end
 
+      it "does not change a slot already occupied" do
+        board.play('🔴', 3)
+        board.play('⚫', 3)
+        expect(board.board).to eq([
+            [nil, nil, nil, nil, nil, nil, nil],
+            [nil, nil, nil, nil, nil, nil, nil],
+            [nil, nil, nil, nil, nil, nil, nil],
+            [nil, nil, nil, nil, nil, nil, nil],
+            [nil, nil, '⚫', nil, nil, nil, nil],
+            [nil, nil, '🔴', nil, nil, nil, nil]
+            ])
+      end
   end
 end
