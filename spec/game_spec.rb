@@ -11,7 +11,7 @@ describe Game do
 
     it "changes to other player" do
       game.change_turn
-      expect(game.turn).to eq('⚫')
+      expect(game.turn).to eq('⚪')
     end
   end
 

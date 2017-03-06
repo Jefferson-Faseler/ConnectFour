@@ -6,8 +6,8 @@ class Game
 
   def change_turn
     if @turn == '🔴'
-      @turn = '⚫'
-    elsif @turn == '⚫'
+      @turn = '⚪'
+    elsif @turn == '⚪'
       @turn = '🔴'
     end
   end
