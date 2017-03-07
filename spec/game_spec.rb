@@ -30,33 +30,41 @@ describe Game do
       expect(game.four_in_row(board.board, '⚪')).to eq false
     end
 
-    describe "returns true if four in a row or false otherwise for" do
+    describe "returns true or false for different types of four in row" do
 
-      it "horizontal matches" do
+      describe "horizontal" do
 
-        expect(game.horizontal(board.board, '🔴')).to eq false
-
-        4.times do |i|
-          x = i + 1
-          board.place('🔴', x)
+        it "returns false for no matches" do
+          expect(game.horizontal(board.board, '🔴')).to eq false
         end
 
-        expect(game.horizontal(board.board, '⚪')).to eq false
-        expect(game.horizontal(board.board, '🔴')).to eq true
-      end
-
-      it "vertical matches" do
-        expect(game.vertical(board.board, '⚪')).to eq false
-
-        4.times do |i|
-          x = 2
-          board.place('⚪', x)
+        it "returns true for a match" do
+          4.times do |i|
+            x = i + 1
+            board.place('🔴', x)
+          end
+          expect(game.horizontal(board.board, '🔴')).to eq true
+          expect(game.horizontal(board.board, '⚪')).to eq false
         end
 
-        expect(game.vertical(board.board, '🔴')).to eq false
-        expect(game.vertical(board.board, '⚪')).to eq true
       end
 
+      describe "vertical" do
+
+        it "returns false for no matches" do
+          expect(game.vertical(board.board, '⚪')).to eq false
+        end
+
+        it "returns true for a vertical match" do
+          4.times do |i|
+            x = 2
+            board.place('⚪', x)
+          end
+          expect(game.vertical(board.board, '⚪')).to eq true
+          expect(game.vertical(board.board, '🔴')).to eq false
+        end
+
+      end
 
     end
 
