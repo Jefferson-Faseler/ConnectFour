@@ -17,6 +17,11 @@ class Game
     board.each do |line|
       return true if line.join('').include?(four_of_color)
     end
+    return false
+  end
+
+  def horizontal(board, color)
+    four_in_row(board, color)
   end
 
   def turn
