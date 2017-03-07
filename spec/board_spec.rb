@@ -14,7 +14,7 @@ describe Board do
         ])
   end
 
-  describe "placeing on the board" do
+  describe "placing on the board" do
     it "changes the bottom-most value of column" do
       board.place('🔴', 3)
       expect(board.board).to eq([
