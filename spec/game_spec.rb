@@ -45,6 +45,19 @@ describe Game do
         expect(game.horizontal(board.board, '🔴')).to eq true
       end
 
+      it "vertical matches" do
+        expect(game.vertical(board.board, '⚪')).to eq false
+
+        4.times do |i|
+          x = 2
+          board.place('⚪', x)
+        end
+
+        expect(game.vertical(board.board, '🔴')).to eq false
+        expect(game.vertical(board.board, '⚪')).to eq true
+      end
+
+
     end
 
   end

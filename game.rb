@@ -24,6 +24,11 @@ class Game
     four_in_row(board, color)
   end
 
+  def vertical(board, color)
+    four_in_row(board.transpose, color)
+  end
+
+
   def turn
     @turn
   end
