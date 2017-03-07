@@ -23,33 +23,17 @@ class Game
   end
 
   def winner?(board, color)
-    if horizontal(board.display, color) == true
+    if four_in_row(board.display, color) == true
       return true
-    elsif vertical(board.transpose, color) == true
+    elsif four_in_row(board.transpose, color) == true
       return true
-    elsif left_diagonal(board.left_diagonal_transpose, color) == true
+    elsif four_in_row(board.left_diagonal_transpose, color) == true
       return true
-    elsif right_diagonal(board.right_diagonal_transpose, color) == true
+    elsif four_in_row(board.right_diagonal_transpose, color) == true
       return true
     else
       return false
     end
-  end
-
-  def horizontal(board, color)
-    four_in_row(board, color)
-  end
-
-  def vertical(board, color)
-    four_in_row(board, color)
-  end
-
-  def right_diagonal(board, color)
-    four_in_row(board, color)
-  end
-
-  def left_diagonal(board, color)
-    four_in_row(board, color)
   end
 
 end
