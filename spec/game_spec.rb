@@ -23,11 +23,11 @@ describe Game do
         x = i + 1
         board.place('⚪', x)
       end
-      expect(game.four_in_row(board.board, '⚪')).to eq true
+      expect(game.four_in_row(board.display, '⚪')).to eq true
     end
 
     it "returns false if not four in a row" do
-      expect(game.four_in_row(board.board, '⚪')).to eq false
+      expect(game.four_in_row(board.display, '⚪')).to eq false
     end
 
     describe "returns true or false for different types of four in row" do
@@ -35,7 +35,7 @@ describe Game do
       describe "horizontal" do
 
         it "returns false for no matches" do
-          expect(game.horizontal(board.board, '🔴')).to eq false
+          expect(game.horizontal(board.display, '🔴')).to eq false
         end
 
         it "returns true for a match" do
@@ -43,8 +43,8 @@ describe Game do
             x = i + 1
             board.place('🔴', x)
           end
-          expect(game.horizontal(board.board, '🔴')).to eq true
-          expect(game.horizontal(board.board, '⚪')).to eq false
+          expect(game.horizontal(board.display, '🔴')).to eq true
+          expect(game.horizontal(board.display, '⚪')).to eq false
         end
 
       end
@@ -52,7 +52,7 @@ describe Game do
       describe "vertical" do
 
         it "returns false for no matches" do
-          expect(game.vertical(board.board, '⚪')).to eq false
+          expect(game.vertical(board.display, '⚪')).to eq false
         end
 
         it "returns true for a vertical match" do
@@ -60,8 +60,8 @@ describe Game do
             x = 2
             board.place('⚪', x)
           end
-          expect(game.vertical(board.board, '⚪')).to eq true
-          expect(game.vertical(board.board, '🔴')).to eq false
+          expect(game.vertical(board.display, '⚪')).to eq true
+          expect(game.vertical(board.display, '🔴')).to eq false
         end
 
       end
@@ -69,7 +69,7 @@ describe Game do
       describe "right diagonal /" do
 
         it "returns false for no matches" do
-          expect(game.right_diagonal(board.board, '🔴')).to eq false
+          expect(game.right_diagonal(board.display, '🔴')).to eq false
         end
 
         it "returns true for a right diagonal match" do
@@ -94,15 +94,15 @@ describe Game do
           # ["⚫", "🔴", "⚪", "⚪", "⚫", "⚫", "⚫"]
           # ["🔴", "⚪", "⚪", "⚪", "⚫", "⚫", "⚫"]
 
-          expect(game.right_diagonal(board.board, '⚪')).to eq false
-          expect(game.right_diagonal(board.board, '🔴')).to eq true
+          expect(game.right_diagonal(board.display, '⚪')).to eq false
+          expect(game.right_diagonal(board.display, '🔴')).to eq true
         end
       end
 
       describe "left diagonal \\" do
 
         it "returns false for no matches" do
-          expect(game.left_diagonal(board.board, '🔴')).to eq false
+          expect(game.left_diagonal(board.display, '🔴')).to eq false
         end
 
         it "returns true for a left diagonal match" do
@@ -127,8 +127,8 @@ describe Game do
           # ["⚪", "⚪", "🔴", "⚫", "⚫", "⚫", "⚫"]
           # ["⚪", "⚪", "⚪", "🔴", "⚫", "⚫", "⚫"]
 
-          expect(game.left_diagonal(board.board, '⚪')).to eq false
-          expect(game.left_diagonal(board.board, '🔴')).to eq true
+          expect(game.left_diagonal(board.display, '⚪')).to eq false
+          expect(game.left_diagonal(board.display, '🔴')).to eq true
         end
       end
 
