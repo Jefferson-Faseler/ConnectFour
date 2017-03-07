@@ -99,6 +99,40 @@ describe Game do
         end
       end
 
+      describe "left diagonal \\" do
+
+        it "returns false for no matches" do
+          expect(game.left_diagonal(board.board, '🔴')).to eq false
+        end
+
+        it "returns true for a left diagonal match" do
+          board.place('⚪', 1)
+          board.place('⚪', 1)
+          board.place('⚪', 1)
+          board.place('🔴', 1)
+
+          board.place('⚪', 2)
+          board.place('⚪', 2)
+          board.place('🔴', 2)
+
+          board.place('⚪', 3)
+          board.place('🔴', 3)
+
+          board.place('🔴', 4)
+
+          # ["⚫", "⚫", "⚫", "⚫", "⚫", "⚫", "⚫"]
+          # ["⚫", "⚫", "⚫", "⚫", "⚫", "⚫", "⚫"]
+          # ["🔴", "⚫", "⚫", "⚫", "⚫", "⚫", "⚫"]
+          # ["⚪", "🔴", "⚫", "⚫", "⚫", "⚫", "⚫"]
+          # ["⚪", "⚪", "🔴", "⚫", "⚫", "⚫", "⚫"]
+          # ["⚪", "⚪", "⚪", "🔴", "⚫", "⚫", "⚫"]
+
+          expect(game.left_diagonal(board.board, '⚪')).to eq false
+          expect(game.left_diagonal(board.board, '🔴')).to eq true
+        end
+      end
+
+
     end
 
   end
