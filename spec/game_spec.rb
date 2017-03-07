@@ -26,24 +26,26 @@ describe Game do
       expect(game.four_in_row(board.board, '⚪')).to eq true
     end
 
-    it "returns false if no four in a row" do
+    it "returns false if not four in a row" do
       expect(game.four_in_row(board.board, '⚪')).to eq false
     end
 
-    describe "if a player has four in a row returns true for" do
+    describe "returns true if four in a row or false otherwise for" do
 
-      it "horizontal" do
+      it "horizontal matches" do
+
+        expect(game.horizontal(board.board, '🔴')).to eq false
+
         4.times do |i|
           x = i + 1
           board.place('🔴', x)
         end
 
+        expect(game.horizontal(board.board, '⚪')).to eq false
         expect(game.horizontal(board.board, '🔴')).to eq true
       end
 
     end
-
-    describe
 
   end
 
