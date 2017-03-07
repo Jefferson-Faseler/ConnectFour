@@ -22,49 +22,34 @@ class Game
     return false
   end
 
+  def winner?(board, color)
+    if horizontal(board.display, color) == true
+      return true
+    elsif vertical(board.transpose, color) == true
+      return true
+    elsif left_diagonal(board.left_diagonal_transpose, color) == true
+      return true
+    elsif right_diagonal(board.right_diagonal_transpose, color) == true
+      return true
+    else
+      return false
+    end
+  end
+
   def horizontal(board, color)
     four_in_row(board, color)
   end
 
   def vertical(board, color)
-    four_in_row(board.transpose, color)
+    four_in_row(board, color)
   end
 
   def right_diagonal(board, color)
-    right_diagonal_transpose(board, color)
+    four_in_row(board, color)
   end
 
   def left_diagonal(board, color)
-    left_diagonal_transpose(board, color)
-  end
-
-  def right_diagonal_transpose(board, color)
-    i = 0
-    diagonal_length = ((board.length) + (board[0].length) - 1)
-    r_diagonally_transposed = Array.new(diagonal_length) {Array.new}
-    board.each do |row|
-      row.each_with_index do |slot, index|
-        index += i
-        r_diagonally_transposed[index] << slot
-      end
-      i += 1
-    end
-    four_in_row(r_diagonally_transposed, color)
-  end
-
-  def left_diagonal_transpose(board, color)
-    i = -1
-    diagonal_length = ((board.length) + (board[0].length) - 1)
-    l_diagonally_transposed = Array.new(diagonal_length) {Array.new}
-    board.each do |row|
-      row.each_with_index do |slot, index|
-        index += i
-        l_diagonally_transposed[index] << slot
-      end
-      i -= 1
-    end
-
-    four_in_row(l_diagonally_transposed, color)
+    four_in_row(board, color)
   end
 
 end
