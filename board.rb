@@ -12,6 +12,10 @@ class Board
     @display[row_index][column-1] = color
   end
 
+  def transpose
+    @display.transpose
+  end
+
   def right_diagonal_transpose
     i = 0
     diagonal_length = ((@display.length) + (@display[0].length) - 1)
