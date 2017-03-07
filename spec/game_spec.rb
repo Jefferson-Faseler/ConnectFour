@@ -66,6 +66,39 @@ describe Game do
 
       end
 
+      describe "right diagonal /" do
+
+        it "returns false for no matches" do
+          expect(game.right_diagonal(board.board, '🔴')).to eq false
+        end
+
+        it "returns true for a right diagonal match" do
+          board.place('🔴', 1)
+
+          board.place('⚪', 2)
+          board.place('🔴', 2)
+
+          board.place('⚪', 3)
+          board.place('⚪', 3)
+          board.place('🔴', 3)
+
+          board.place('⚪', 4)
+          board.place('⚪', 4)
+          board.place('⚪', 4)
+          board.place('🔴', 4)
+
+          # ["⚫", "⚫", "⚫", "⚫", "⚫", "⚫", "⚫"]
+          # ["⚫", "⚫", "⚫", "⚫", "⚫", "⚫", "⚫"]
+          # ["⚫", "⚫", "⚫", "🔴", "⚫", "⚫", "⚫"]
+          # ["⚫", "⚫", "🔴", "⚪", "⚫", "⚫", "⚫"]
+          # ["⚫", "🔴", "⚪", "⚪", "⚫", "⚫", "⚫"]
+          # ["🔴", "⚪", "⚪", "⚪", "⚫", "⚫", "⚫"]
+
+          expect(game.right_diagonal(board.board, '⚪')).to eq false
+          expect(game.right_diagonal(board.board, '🔴')).to eq true
+        end
+      end
+
     end
 
   end
