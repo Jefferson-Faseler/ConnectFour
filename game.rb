@@ -1,5 +1,7 @@
 class Game
 
+  attr_reader :turn
+
   def initialize
     @turn = '🔴'
   end
@@ -63,10 +65,6 @@ class Game
     end
 
     four_in_row(l_diagonally_transposed, color)
-  end
-
-  def turn
-    @turn
   end
 
 end
